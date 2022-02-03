@@ -70,18 +70,18 @@ public class Fighter {
 	}
 	
 	public void draw(SpriteBatch batch, TextureRegion region, float x, float y) {
-        batch.draw(region, x, y);
+        batch.draw(region, x, y, 100, 100);
     }
 	
-	private boolean collidesWith(Fighter fighter) {
-		if (this.x + this.size < fighter.getX() || this.x - this.size > fighter.getX() + fighter.getSize() || this.y + this.size < fighter.getY() || this.y - this.size > fighter.getY() + fighter.getSize()) {
+	private boolean collidesWith(float your_x, float your_y, float opponent_x, float opponent_y) {
+		if (your_x + 100 < opponent_x || your_x - 100 > opponent_x + 100 || your_y + 100 < opponent_y || your_y - 100 > opponent_y + 100) {
 			return false;
 		}
 		return true;
 	}
 	
-	public void checkCollision(Fighter fighter) {
-		if (collidesWith(fighter))System.out.println(this.health);
+	public void checkCollision(float your_x, float your_y, float opponent_x, float opponent_y) {
+		if (collidesWith(your_x, your_y, opponent_x, opponent_y))System.out.println(this.health);
 	}
 	
 }

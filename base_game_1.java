@@ -23,7 +23,7 @@ public class base_game_1 extends ApplicationAdapter {
 	float moveSpeed;
 	
 	Fighter fighter_one = new Fighter(1, 1, 1, 1, 1, 1);
-	Fighter fighter_two = new Fighter(1, 1, 1, 1, 1, 1);
+	Fighter fighter_two = new Fighter(1, 1, 1, 2, 1, 1);
 	
 	private TextureAtlas lightIdleTexture, lightAttackTexture, lightRunTexture;
 	private TextureAtlas heavyIdleTexture, heavyAttackTexture, heavyRunTexture;
@@ -230,6 +230,8 @@ public class base_game_1 extends ApplicationAdapter {
         	elapsedTimeFighterTwo = 0;
         }                     
         
+        fighter_one.checkCollision(lightPosition.x, lightPosition.y, heavyPosition.x, heavyPosition.y);
+        fighter_two.checkCollision(heavyPosition.x, heavyPosition.y, lightPosition.x, lightPosition.y);
 	}
 	
 	
