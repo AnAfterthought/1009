@@ -1,0 +1,1 @@
+g++ -o a *.cpp Character\*.cpp Equipment\*.cpp
